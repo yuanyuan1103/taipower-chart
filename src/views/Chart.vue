@@ -6,6 +6,7 @@
     :options="chartOptions"
     :series="series"
   />
+  <div v-else class="container">資料未抓到 請重新整理頁面</div>
 </template>
 
 <script>
@@ -43,12 +44,12 @@ export default {
           type: "category",
           categories: ["2022/01/01", "2022/01/02", "2022/01/03"],
           labels: {
-            formatter: (val) => {
-              const date = new Date(val);
-              return date.getDate() === 1
-                ? `${date.getFullYear()}年${date.getMonth() + 1}月`
-                : val;
-            },
+            // formatter: (val) => {
+            //   const date = new Date(val);
+            //   return date.getDate() === 1
+            //     ? `${date.getFullYear()}年${date.getMonth() + 1}月`
+            //     : val;
+            // },
             rotate: -10,
           },
           // tooltip: {
@@ -150,7 +151,7 @@ export default {
   },
   mounted() {
     this.getTaipower();
-    this.isLoading = false;
+    // this.isLoading = false;
   },
 };
 </script>
